@@ -1,25 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Routes, Route } from "react-router-dom";
+
+import HomePage from "./pages/HomePage";
+
+import Login from "./pages/Login";
+
+import SignUp from "./pages/SignUp";
+
+import Dashboard from "./pages/Dashboard";
+
+import ForgotPassword from "./pages/ForgotPassword";
+
+import ResetPassword from "./pages/ResetPassword";
+
+import Layout from "./components/Layout";
+
+import PrivateRoute from "./auth/PrivateRoute"; // 1. Importe a rota privada
+
+
+
+const App = () => {
+
+  return (
+
+    <Layout>
+
+      <Routes>
+
+        {/* --- Rotas Públicas --- */}
+
+        <Route path="/" element={<HomePage />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/signup" element={<SignUp />} />
+
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        <Route path="/reset-password" element={<ResetPassword />} />
+
+       
+
+        {/* --- Rotas Privadas --- */}
+
+        {/* 2. Envolvemos as rotas que queremos proteger com o PrivateRoute */}
+
+        <Route element={<PrivateRoute />}>
+
+          <Route path="/dashboard" element={<Dashboard />} />
+
+          {/* Se você tiver outras rotas privadas no futuro, adicione-as aqui */}
+
+          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+
+        </Route>
+
+      </Routes>
+
+    </Layout>
+
+  );
+
+};
+
+
 
 export default App;
