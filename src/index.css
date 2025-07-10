@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #dbeafe; /* Cor de 'blue-200' do Tailwind */
+}
