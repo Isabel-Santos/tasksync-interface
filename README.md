@@ -1,70 +1,156 @@
-# Getting Started with Create React App
+# 📋 TaskSync - Interface React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta parte do repositório refere-se exclusivamente à **Interface de Frontend** desenvolvida com **React**.  
+A aplicação foi construída para interagir com uma API RESTful para gestão de tarefas, incluindo:
 
-## Available Scripts
+- Funcionalidades de autenticação
+- Manipulação de tarefas
+- Interface moderna e responsiva com **Tailwind CSS**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 1. ✅ Requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de iniciar, certifique-se de que tem os seguintes softwares instalados:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Node.js](https://nodejs.org/) e npm (ou [Yarn](https://yarnpkg.com/))
+- [Git](https://git-scm.com/) para clonagem do repositório
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ 2. Configuração do Frontend (React)
 
-### `npm run build`
+### 2.1. Clonar o Repositório
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/Isabel-Santos/tasksync-interface.git
+cd tasksync-interface
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2.2. Instalar Dependências
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+Ou, se utilizar o Yarn:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+yarn install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2.3. Configurando o Ambiente
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+O projeto está configurado para se comunicar com a API backend através de um proxy.  
+Essa configuração está definida no arquivo `package.json`:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```json
+"proxy": "https://localhost:5000"
+```
 
-## Learn More
+⚠️ Certifique-se de que sua API de backend está executando neste endereço.  
+Caso contrário, altere o valor do proxy antes de iniciar a aplicação.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 3. 🚀 Executando o Frontend
 
-### Code Splitting
+Para iniciar a aplicação em modo de desenvolvimento, execute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm start
+```
 
-### Analyzing the Bundle Size
+A aplicação estará disponível em: [http://localhost:3000](http://localhost:3000)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> O servidor possui **hot-reloading**, ou seja, alterações no código são refletidas automaticamente no navegador.
 
-### Making a Progressive Web App
+### 📜 Scripts Disponíveis
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `npm start`: Inicia a aplicação em modo de desenvolvimento.
+- `npm run build`: Compila a aplicação para produção na pasta `build`.
+- `npm test`: Inicia o corredor de testes em modo interativo.
+- `npm run eject`: Remove a dependência de configuração do `react-scripts`.  
+  ⚠️ Esta é uma operação **irreversível**.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🚀 4. Funcionalidades Principais
 
-### Deployment
+- **🔐 Autenticação Completa:** Registro, login com autenticação em duas etapas (2FA), recuperação de senha, e tokens JWT com renovação automática.
+- **🧩 Gestão de Tarefas:** Interface Kanban responsiva para criar, visualizar, atualizar e excluir tarefas com colunas por status.
+- **⚛️ Arquitetura Moderna com React:** SPA com React Router e Tailwind CSS. Componentes reutilizáveis e manutenção simplificada.
+- **🔗 Integração com API:** Comunicação robusta com o backend via **Axios**, usando interceptors para tokens e tratamento de erros.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 📂 Estrutura Geral do Projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+tasksync-interface/
+│
+├── public/                  
+├── src/
+│   ├── api/
+│   │   └── api.js
+│   ├── auth/
+│   │   └── PrivateRoute.jsx
+│   ├── components/
+│   │   ├── DashboardHeader.jsx
+│   │   ├── Layout.jsx
+│   │   ├── LoginForm.jsx
+│   │   ├── ProfileMenu.jsx
+│   │   ├── Sidebar.jsx
+│   │   ├── SignUpForm.jsx
+│   │   ├── TaskCard.jsx
+│   │   ├── TaskColumn.jsx
+│   │   ├── TaskFormModal.jsx
+│   │   └── TaskList.jsx
+│   ├── hooks/
+│   │   └── useTasks.js
+│   ├── pages/
+│   │   ├── Dashboard.jsx
+│   │   ├── ForgotPassword.jsx
+│   │   ├── HomePage.jsx
+│   │   ├── Login.jsx
+│   │   ├── ResetPassword.jsx
+│   │   └── SignUp.jsx
+│   ├── utils/
+│   │   └── auth.js
+│   ├── App.js
+│   ├── index.css
+│   └── index.js
+│
+├── .gitignore
+├── package.json
+├── postcss.config.js
+├── README.md
+└── tailwind.config.js
+```
+
+---
+
+## 📊 Status do Desenvolvimento
+
+**Status:** Desenvolvimento Ativo 🛠️  
+A interface já é funcional, com sistema de autenticação robusto e gestão de tarefas, pronta para integração com uma API backend compatível.
+
+---
+
+## 🔜 Próximas Etapas
+
+- ✅ Implementação de testes unitários e de integração com Jest e Testing Library  
+- 🔍 Funcionalidade de pesquisa de tarefas no Dashboard  
+- 👤 Página de perfil com atualização de dados e avatar  
+- ♿️ Melhorias em acessibilidade e performance
+
+---
+
+### Nota do Projeto
+Esta é a interface de frontend do projeto TaskSync, desenvolvida em React. Ela consome uma API RESTful para todas as operações.
+- ▶️ Assista a um vídeo de demonstração da aplicação completa aqui
+- 🔗 O repositório da API de backend (Flask) pode ser encontrado em: [[link-para-o-repositorio-da-api](https://github.com/Isabel-Santos/tasksync-api.git)]
+
+## 💡👩‍💻 Autora
+
+Desenvolvido por [Isabel Santos](https://github.com/Isabel-Santos)
