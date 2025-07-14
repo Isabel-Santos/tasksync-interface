@@ -28,10 +28,10 @@ import TaskCard from './TaskCard'; // Importa o TaskCard corretamente
 
 const TaskColumn = ({ title, tasks, onEditTask, onDeleteTask, onStatusChange }) => {
   const columnStyles = {
-    'Pendente': 'border-t-4 border-red-500',
-    'A fazer': 'border-t-4 border-blue-500',
-    'Em andamento': 'border-t-4 border-yellow-500',
+    'A Fazer': 'border-t-4 border-red-500',
+    'Em Andamento': 'border-t-4 border-yellow-500',
     'Concluído': 'border-t-4 border-green-500',
+    'Em Revisão': 'border-t-4 border-blue-500'
   };
 
   return (

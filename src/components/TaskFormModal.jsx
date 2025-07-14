@@ -5,7 +5,7 @@ const TaskFormModal = ({ isOpen, onClose, onSubmit, task }) => {
   // Estados para os campos do formulário
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [status, setStatus] = useState('Pendente');
+  const [status, setStatus] = useState('A Fazer');
   const [priority, setPriority] = useState('Baixa');
   const [error, setError] = useState('');
 
@@ -14,13 +14,13 @@ const TaskFormModal = ({ isOpen, onClose, onSubmit, task }) => {
     if (task) {
       setTitle(task.title || '');
       setDescription(task.description || '');
-      setStatus(task.status || 'Pendente');
+      setStatus(task.status || 'A Fazer');
       setPriority(task.priority || 'Baixa');
     } else {
       // Reseta o formulário para o estado inicial quando for para criar uma nova tarefa
       setTitle('');
       setDescription('');
-      setStatus('Pendente');
+      setStatus('A Fazer');
       setPriority('Baixa');
     }
     // Limpa o erro ao abrir o modal
@@ -74,6 +74,7 @@ const TaskFormModal = ({ isOpen, onClose, onSubmit, task }) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows="3"
+              placeholder="Descreva a sua tarefa..."
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             ></textarea>
           </div>
@@ -86,10 +87,11 @@ const TaskFormModal = ({ isOpen, onClose, onSubmit, task }) => {
                 onChange={(e) => setStatus(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               >
-                <option>Pendente</option>
-                <option>A fazer</option>
-                <option>Em andamento</option>
+                <option>A Fazer</option>
+                <option>Em Andamento</option>
                 <option>Concluído</option>
+                <option>Em Revisão</option>
+                
               </select>
             </div>
             <div>
